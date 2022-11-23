@@ -3,14 +3,10 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 // ignore_for_file: prefer_const_constructors
 void main() {
- runApp(new flutterapp());
+ runApp(new container());
   //this is to infate the widget to the main screen. whatever we we pass in it would be 
   //displayed in our users Screen.
-
- 
 }
-
-
 class flutterapp extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
@@ -45,4 +41,35 @@ class flutterapp extends StatelessWidget{
 
   }
 
+}
+
+
+class container extends StatelessWidget{
+  @override
+  Widget build(BuildContext context) {
+
+     return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: Scaffold(
+        appBar: AppBar(title: Text("Stand by me",style: TextStyle(color: Colors.black,fontStyle: FontStyle.italic),),backgroundColor: Colors.amberAccent,),
+        body: Material(
+          child: Center(
+            child: Container(
+              alignment: Alignment.center,
+              color: Colors.black,
+              width: 400.0,
+              height: 250.0,
+              margin: EdgeInsets.only(left:30.0,right: 30.0),
+              child: Text("would you stand by me ",style: TextStyle(color: Colors.white,fontStyle: FontStyle.italic,fontSize: 20.0),),
+            )
+          ),
+        ),
+      ) 
+     );
+     
+      
+     
+      
+        throw UnimplementedError();
+  }
 }
