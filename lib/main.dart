@@ -3,7 +3,7 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 // ignore_for_file: prefer_const_constructors
 void main() {
- runApp(new container());
+ runApp(new Flightapp());
   //this is to infate the widget to the main screen. whatever we we pass in it would be 
   //displayed in our users Screen.
 }
@@ -60,16 +60,162 @@ class container extends StatelessWidget{
               width: 400.0,
               height: 250.0,
               margin: EdgeInsets.only(left:30.0,right: 30.0),
-              child: Text("would you stand by me ",style: TextStyle(color: Colors.white,fontStyle: FontStyle.italic,fontSize: 20.0),),
+              
+            child: Row(
+
+              children: [
+
+               Expanded(child: 
+               Text("Would you stand by me ",textDirection: TextDirection.ltr,
+                style: TextStyle(color: Colors.white,fontSize: 23.0,fontStyle: FontStyle.italic),
+                )
+               ) ,
+
+                Expanded(child: 
+                 Text("we have a long way to go",textDirection: TextDirection.ltr,
+                style: TextStyle(color: Colors.green,fontSize: 23.0,fontStyle: FontStyle.italic),
+                )
+                ),
+
+                Expanded(child: 
+                
+                 Text("Dont give up",textDirection: TextDirection.ltr,
+                style: TextStyle(color: Colors.white,fontSize: 23.0,fontStyle: FontStyle.italic),
+                ),
+                )
+              ],
+            ),
             )
           ),
         ),
       ) 
      );
      
+      //Expanded widget basically forces the children to acquire the available space
       
-     
       
         throw UnimplementedError();
   }
 }
+
+
+// Lets Desgin an UI for an app showing information about the flights.
+//core logic a container have a column widget followed by the row widget.
+
+
+class Flightapp extends StatelessWidget{
+  @override
+  Widget build(BuildContext context) {
+
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+    home: Scaffold(
+      appBar: AppBar(title: Text("Flight Information",style:
+      TextStyle(color: Colors.black,fontSize: 17.0,fontStyle: FontStyle.italic)
+      ,),backgroundColor: Colors.amberAccent,),
+      body: Material(
+        color: Colors.white,
+        child: Container(
+          margin:EdgeInsets.all(10.0),
+          padding: EdgeInsets.all(10.0),
+          child: Column(
+            children: [
+              SizedBox(height: 10.0,),
+              
+              Row(
+                children: [
+
+                 Expanded(child: 
+                  Text("1.KLM Airlines",style: 
+                  TextStyle(color: Colors.black,fontSize: 20.0,fontStyle: FontStyle.italic),),
+                 ),
+                 
+                 Expanded(
+                  child: Text("Flight from amsterdam to Panama",style: 
+                  TextStyle(color: Colors.black,fontSize: 17.0,fontStyle: FontStyle.italic)
+                  ,),
+                 ) 
+                 
+                ],
+              ),
+
+             SizedBox(height: 20.0,),
+             //we used this widget in order to provide space between two Text elements in the row.
+               Row(
+                children: [
+
+                 Expanded(child: 
+                  Text("2.Emirates",style: 
+                  TextStyle(color: Colors.black,fontSize: 20.0,fontStyle: FontStyle.italic),),
+                 ),
+
+                 Expanded(
+                  child: Text("Flight from Dubai to Manchester city",style: 
+                  TextStyle(color: Colors.black,fontSize: 17.0,fontStyle: FontStyle.italic)
+                  ),
+                 ) 
+                 
+                ],
+              ),
+              SizedBox(height: 20.0),
+              Row(
+                children: [
+
+                 Expanded(child: 
+                  Text("3.Air India",style: 
+                  TextStyle(color: Colors.black,fontSize: 20.0,fontStyle: FontStyle.italic),),
+                 ),
+
+                 Expanded(
+                  child: Text("Flight from Mumbai to Dallas Texas",style: 
+                  TextStyle(color: Colors.black,fontSize: 17.0,fontStyle: FontStyle.italic)
+                  ),
+                 ) 
+                 
+                ],
+              ),
+
+              SizedBox(height: 20.0,),
+              Row(
+                children: [
+
+                 Expanded(child: 
+                  Text("4.Vistara",style: 
+                  TextStyle(color: Colors.black,fontSize: 20.0,fontStyle: FontStyle.italic),),
+                 ),
+
+                 Expanded(
+                  child: Text("Flight from Egypt to India",style: 
+                  TextStyle(color: Colors.black,fontSize: 17.0,fontStyle: FontStyle.italic)
+                  ),
+                 ) 
+                 
+                ],
+              ),
+              SizedBox(height: 20.0,),
+              Row(
+                children: [
+
+                 Expanded(child: 
+                  Text("5.Air Canada",style: 
+                  TextStyle(color: Colors.black,fontSize: 20.0,fontStyle: FontStyle.italic),),
+                 ),
+
+                 Expanded(
+                  child: Text("Flight from India to Toronto",style: 
+                  TextStyle(color: Colors.black,fontSize: 17.0,fontStyle: FontStyle.italic)
+                  ),
+                 ) 
+                 
+                ],
+              )
+            ],
+          ),
+        ),
+      ),
+    ),
+    );
+        throw UnimplementedError();
+  }
+}
+
