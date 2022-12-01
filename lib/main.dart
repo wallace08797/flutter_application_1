@@ -48,7 +48,7 @@ class container extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
 
-     return MaterialApp(
+     return MaterialApp( 
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         appBar: AppBar(title: Text("Stand by me",style: TextStyle(color: Colors.black,fontStyle: FontStyle.italic),),backgroundColor: Colors.amberAccent,),
@@ -208,7 +208,10 @@ class Flightapp extends StatelessWidget{
                  ) 
                  
                 ],
-              )
+              ),
+             SizedBox(height:50.0 ,),
+             getimage(),  
+             raisebutton()
             ],
           ),
         ),
@@ -216,6 +219,47 @@ class Flightapp extends StatelessWidget{
     ),
     );
         throw UnimplementedError();
+  }
+
+}
+
+class getimage extends StatelessWidget{
+  @override
+  Widget build(BuildContext context) {
+    
+  AssetImage assetImage=AssetImage('images/i.jpg');
+  Image image=Image(image: assetImage);
+  return Container(child: image,);
+        throw UnimplementedError();
+  }
+}
+
+
+class raisebutton extends StatelessWidget{
+  @override
+  Widget build(BuildContext context) {
+    
+    return Container(
+      margin: EdgeInsets.only(top: 50.0),
+    child: ElevatedButton(onPressed:(){
+     showDialog(context: context,barrierDismissible: false, builder:((context) => AlertDialog(
+      title: Text("Thankyou for choosing our Flight",style: TextStyle(color: Colors.amberAccent,fontStyle: FontStyle.italic),),
+      content: Text("Have a Pleasant Flight",style: TextStyle(color: Colors.amberAccent,fontStyle: FontStyle.italic),),
+      backgroundColor: Colors.black,
+      
+    
+      actions:<Widget>[
+        TextButton(onPressed:(){
+           Navigator.of(context).pop();
+        }, child: Text("Okay"))
+      ],
+     )));
+    },
+    child: Text("Click to Confirm Booking",style: TextStyle(color: Colors.black),),
+    style: ButtonStyle(backgroundColor: MaterialStateProperty.all(Colors.deepOrange)),
+    )  
+    );
+    
   }
 }
 
