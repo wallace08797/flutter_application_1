@@ -3,10 +3,35 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 // ignore_for_file: prefer_const_constructors
 void main() {
- runApp(new Flightapp());
+ runApp(MaterialApp(
+  title: "Exploring ListView",
+  home: Scaffold(
+    appBar: AppBar(title:Text("Listview")),
+    body: getlistview()
+  ),
+ ));
+
+ 
   //this is to infate the widget to the main screen. whatever we we pass in it would be 
   //displayed in our users Screen.
 }
+
+ Widget getlistview(){
+    
+    var listview=ListView(
+      children: [
+        ListTile(
+          leading: Icon(Icons.landscape),
+          title: Text("LandScape"),
+          trailing: Icon(Icons.sunny),
+        ),
+        Text("Hello world"),
+        Container(color: Colors.amberAccent,margin:EdgeInsets.only(top: 50.0))
+
+      ],
+    );
+    return listview;
+  }
 class flutterapp extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
@@ -246,8 +271,6 @@ class raisebutton extends StatelessWidget{
       title: Text("Thankyou for choosing our Flight",style: TextStyle(color: Colors.amberAccent,fontStyle: FontStyle.italic),),
       content: Text("Have a Pleasant Flight",style: TextStyle(color: Colors.amberAccent,fontStyle: FontStyle.italic),),
       backgroundColor: Colors.black,
-      
-    
       actions:<Widget>[
         TextButton(onPressed:(){
            Navigator.of(context).pop();
@@ -261,5 +284,7 @@ class raisebutton extends StatelessWidget{
     );
     
   }
+
+ 
 }
 
